@@ -11,15 +11,15 @@ const App= () => {
 
   useEffect ( () => {
 
-    socket.on('message_back', msg => {
+    socket.on('message_back' + 'room1', msg => {
       setMessageList( prevList => [...prevList, msg] )
     })
 
-  }, [socket] )
+  }, [] )
 
 
   const sendMessage = () => {
-    socket.emit('message', { data: message })
+    socket.emit('message', { data: message, roomID: 'room1' })
   }
 
   return (
